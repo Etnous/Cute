@@ -91,7 +91,7 @@ select_os(){
   sed -i "s/Server=127.0.0.1/Server=$zabbixip/g" /etc/zabbix/zabbix_agentd.conf
   sed -i "s/ServerActive=127.0.0.1/ServerActive=$zabbixip/g" /etc/zabbix/zabbix_agentd.conf
   sed -i "s/Hostname=Zabbix server/Hostname=$hostname/g" /etc/zabbix/zabbix_agentd.conf
-  systemctl restart zabbix-agent
+  systemctl restart zabbix-agent && systemctl enable zabbix-agent
   [[ $? -eq 0 ]] && echo -e "${info}Succeed!" || echo -e "${error}Failled!"
 
 }
